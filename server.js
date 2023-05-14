@@ -9,10 +9,20 @@ const lessons = [
   { topic: 'math', location: 'Golders Green', price: 120 }
 ];
 
+const users = {
+  email: "user@example.com", password:"23434234qasd"
+}
+
 app.get('/lessons', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.setHeader('Access-Control-Allow-Origin', "*");
   res.json(lessons);
 });
+
+app.get("/users", (req,  res)=>{
+  res.setHeader('Access-Control-Allow-Origin', "*");
+  res.json(users)
+
+})
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}/lessons`);
